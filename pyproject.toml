@@ -24,12 +24,16 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+"numpy>=1.26.4",
+"scipy>=1.14.1",
+"matplotlib>=3.9.2",
+]
 
 [project.urls]
-Documentation = "https://github.com/Jeff Johnston/value-navigation#readme"
-Issues = "https://github.com/Jeff Johnston/value-navigation/issues"
-Source = "https://github.com/Jeff Johnston/value-navigation"
+Documentation = "https://github.com/wj2/value-navigation#readme"
+Issues = "https://github.com/wj2/value-navigation/issues"
+Source = "https://github.com/wj2/value-navigation"
 
 [tool.hatch.version]
 path = "src/value_navigation/__about__.py"
