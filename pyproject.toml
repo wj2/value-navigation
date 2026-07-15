@@ -1,0 +1,61 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "value-navigation"
+dynamic = ["version"]
+description = 'line attractor model for value meta learning paper'
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Jeff Johnston", email = "wjeffreyjohnston@gmail.com" },
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Programming Language :: Python :: Implementation :: PyPy",
+]
+dependencies = []
+
+[project.urls]
+Documentation = "https://github.com/Jeff Johnston/value-navigation#readme"
+Issues = "https://github.com/Jeff Johnston/value-navigation/issues"
+Source = "https://github.com/Jeff Johnston/value-navigation"
+
+[tool.hatch.version]
+path = "src/value_navigation/__about__.py"
+
+[tool.hatch.envs.types]
+extra-dependencies = [
+  "mypy>=1.0.0",
+]
+[tool.hatch.envs.types.scripts]
+check = "mypy --install-types --non-interactive {args:src/value_navigation tests}"
+
+[tool.coverage.run]
+source_pkgs = ["value_navigation", "tests"]
+branch = true
+parallel = true
+omit = [
+  "src/value_navigation/__about__.py",
+]
+
+[tool.coverage.paths]
+value_navigation = ["src/value_navigation", "*/value-navigation/src/value_navigation"]
+tests = ["tests", "*/value-navigation/tests"]
+
+[tool.coverage.report]
+exclude_lines = [
+  "no cov",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+]
